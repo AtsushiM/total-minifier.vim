@@ -1,0 +1,43 @@
+:TotalMinifierCreate
+ミニファイ用の設定ファイルを現在のディレクトリに書き出します。
+
+--------------------------------------------------------------------------------
+
+# TotalMinifier Config file.
+
+# デプロイ用ディレクトリ
+deploy_dir: ../deploy
+
+# ミニファイ開始＆終了時にgrowlnotifyで通知する
+use_growlnotify: 1
+
+# デプロイ開始時にデプロイ用ディレクトリ内を全削除
+before_reset: 1
+
+# html, img, jsなどバイナリファイルの名称を短い文字列に変換（未実装
+binary_rename: 1
+
+# .svnフォルダを削除する
+remove_svn: 1
+
+# ミニファイ（html）の対象(スペース区切りで複数指定)
+html: index.html test1/index.html test2/index.html test2/test3/index.html
+html_nullprop: 0
+
+# ミニファイ（css）の対象(スペース区切りで複数指定)
+css: css/screen.css css/ie.css css/print.css
+
+# 移動する対象のjs(ミニファイ未実装)
+js: js/main.min.js js/min/main.js
+
+# 画像のディレクトリ(一つのみ)
+img: imgs
+
+--------------------------------------------------------------------------------
+
+
+
+
+:TotalMinifier
+設定ファイルを検索し、ミニファイを実行します。
+
