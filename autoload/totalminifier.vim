@@ -6,6 +6,17 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
+function! totalminifier#Create()
+    if !filereadable(g:totalminifier_config)
+        if filereadable(g:totalminifier_templatedir.g:totalminifier_config)
+            call writefile(readfile(g:totalminifier_templatedir.g:totalminifier_config), g:totalminifier_config)
+        else
+            call writefile([], g:totalminifier_config)
+        endif
+        exec 'e '.g:totalminifier_config
+    endif
+endfunction
+
 function! totalminifier#configDir(target)
     let i = 0
     let dir = expand('%:p:h').'/'
@@ -41,7 +52,7 @@ function! totalminifier#Minifier()
     let deploy_dir = '../deploy'
     let use_growlnotify = 0
     let before_reset = 1
-    let binary_rename = 1
+    let binary_rename = 0
     let remove_svn = 1
     let html = 'index.html'
     let html_nullprop = 0

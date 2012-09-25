@@ -1,0 +1,29 @@
+# TotalMinifier Config file.
+
+# deploy directory
+deploy_dir: ../deploy
+
+# call system("growlnotify -t 'Vake' -m 'Vake start.'")
+# use_growlnotify: 1
+
+# reset
+# before_reset: 0
+
+# binary rename minimize
+# binary_rename: 1
+
+# remove ivisible files
+# remove_svn: 0
+
+# HTMLMinifier -input=index.html -output=../deploy/index.html -deletenullprop=1
+html: index.html
+# html_nullprop: 1
+
+# CSSMinifier -input=main.css -output=../deploy/main.css
+css: css/screen.css
+
+# image directory
+img: imgs
+
+# javascripts
+js: js/main.min.js
