@@ -66,3 +66,23 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
+
+/* line 9, ../scss/screen.scss */
+.ok {
+  padding: 0;
+}
+
+/* line 12, ../scss/screen.scss */
+.ok .ok .ok .ok {
+  padding: 0;
+}
+
+/* line 16, ../scss/screen.scss */
+.ok1 {
+  padding: 0;
+}
+
+/* line 20, ../scss/screen.scss */
+#test {
+  padding-top: 0;
+}

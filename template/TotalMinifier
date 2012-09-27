@@ -12,6 +12,14 @@ deploy_dir: ../deploy
 # binary rename minimize
 # binary_rename: 1
 
+# class(html, css) rename minimize
+# class_rename: 1
+# class_rename_ignore: on off active hover
+
+# id(html, css) rename minimize
+# id_rename: 1
+# id_rename_ignore: gnav main
+
 # remove ivisible files
 # remove_svn: 0
 

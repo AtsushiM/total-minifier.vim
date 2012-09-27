@@ -20,16 +20,9 @@ endif
 if !exists("g:totalminifier_config")
     let g:totalminifier_config = 'TotalMinifier'
 endif
-if !exists("g:totalminifier_configdir")
-    let g:totalminifier_configdir = $HOME.'/.totalminifier/'
-endif
-
-if !isdirectory(g:totalminifier_configdir)
-    call mkdir(g:totalminifier_configdir)
-    call system('cp '.g:totalminifier_templatedir.'* '.g:totalminifier_configdir)
-endif
 
 command! -nargs=* TotalMinifier call totalminifier#Minifier(<f-args>)
 command! TotalMinifierCreate call totalminifier#Create()
+command! TotalMinifierEdit call totalminifier#Edit()
 
 let &cpo = s:save_cpo
