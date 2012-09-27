@@ -26,6 +26,8 @@ remove_svn: 1
 # HTMLMinifier -input=index.html -output=../deploy/index.html -deletenullprop=1
 html: index.html test1/index.html test2/index.html test2/test3/index.html
 html_nullprop: 0
+html_removedebug: 1
+html_setdeploy: 1
 
 # CSSMinifier -input=main.css -output=../deploy/main.css
 css: css/screen.css css/ie.css css/print.css

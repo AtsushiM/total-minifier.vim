@@ -26,6 +26,8 @@ deploy_dir: ../deploy
 # HTMLMinifier -input=index.html -output=../deploy/index.html -deletenullprop=1
 html: index.html
 # html_nullprop: 1
+# html_removedebug: 0
+# html_setdeploy: 0
 
 # CSSMinifier -input=main.css -output=../deploy/main.css
 css: css/screen.css

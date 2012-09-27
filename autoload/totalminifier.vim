@@ -65,6 +65,8 @@ function! totalminifier#Minifier()
     let remove_svn = 1
     let html = 'index.html'
     let html_nullprop = 0
+    let html_removedebug = 1
+    let html_setdeploy = 1
     let class_rename = 0
     let class_rename_ignore = ''
     let id_rename = 0
@@ -114,6 +116,10 @@ function! totalminifier#Minifier()
             let html = value
         elseif key == 'html_nullprop'
             let html_nullprop = value
+        elseif key == 'html_removedebug'
+            let html_removedebug = value
+        elseif key == 'html_setdeploy'
+            let html_setdeploy = value
         elseif key == 'css'
             let css = value
         elseif key == 'img'
@@ -131,7 +137,7 @@ function! totalminifier#Minifier()
 
     call totalminifier#JS(deploy_dir, js)
 
-    call totalminifier#HTMLMinifier(deploy_dir, html, html_nullprop)
+    call totalminifier#HTMLMinifier(deploy_dir, html, html_nullprop, html_removedebug, html_setdeploy)
 
     call totalminifier#CSSMinifier(deploy_dir, css)
 
@@ -150,7 +156,8 @@ function! totalminifier#ClassRename(flg, ignore, dir, html, css)
     call totalminifier#ClassIDRename(a:flg, a:ignore, a:dir, a:html, a:css, 'class')
 endfunction
 function! totalminifier#IDRename(flg, ignore, dir, html, css)
-    call totalminifier#ClassIDRename(a:flg, a:ignore, a:dir, a:html, a:css, 'id')
+    let ignore = a:ignore.' [0-9a-fA-F]{3}'.' [0-9a-fA-F]{6}'
+    call totalminifier#ClassIDRename(a:flg, ignore, a:dir, a:html, a:css, 'id')
 endfunction
 function! totalminifier#ClassIDRename(flg, ignore, dir, html, css, mode)
     if a:flg != 1
@@ -410,13 +417,13 @@ function! totalminifier#JS(dir, path)
     endfor
 endfunction
 
-function! totalminifier#HTMLMinifier(dir, path, nullprop)
+function! totalminifier#HTMLMinifier(dir, path, nullprop, removedebug, setdeploy)
     let dir = a:dir
     let path = split(a:path, ' ')
     let nullprop = a:nullprop
 
     for i in path
-        exec 'HTMLMinifier -input='.i.' -output='.dir.'/'.i.' -deletenullprop='.nullprop
+        exec 'HTMLMinifier -input='.i.' -output='.dir.'/'.i.' -deletenullprop='.nullprop.' -removedebug='.a:removedebug.' -setdeploy='.a:setdeploy
     endfor
 endfunction
 
