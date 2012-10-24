@@ -399,7 +399,7 @@ function! totalminifier#Img(dir, img_dir)
     let dir = a:dir
     let img_dir = a:img_dir
 
-    call system('cp -f '.img_dir.' '.dir.'/'.img_dir)
+    call system('cp -r -f '.img_dir.' '.dir.img_dir)
 endfunction
 
 function! totalminifier#JS(dir, path)
