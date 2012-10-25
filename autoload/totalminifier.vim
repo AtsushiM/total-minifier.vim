@@ -397,9 +397,11 @@ endfunction
 
 function! totalminifier#Img(dir, img_dir)
     let dir = a:dir
-    let img_dir = a:img_dir
+    let img_dir = split(a:img_dir, ' ')
 
-    call system('cp -r -f '.img_dir.' '.dir.img_dir)
+    for i in img_dir
+        call system('cp -r '.i.' '.dir.i)
+    endfor
 endfunction
 
 function! totalminifier#JS(dir, path)
